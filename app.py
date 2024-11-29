@@ -9,6 +9,10 @@ with open('model.pkl', 'rb') as f:
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "Welcome to the Flask API!"
+
 @app.route('/predict', methods=['POST'])
 def predict():
 
