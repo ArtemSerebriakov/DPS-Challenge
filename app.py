@@ -21,15 +21,14 @@ def predict():
     year = data['year']
     month = data['month']
 
-    str = f"{year}-{month}-01"
+    str1 = f"{year}-0{month}-01"
 
     dataset = pd.read_csv('app_data.csv')
 
     dataset.set_index('Date', inplace=True)
     
-    prediction = model.predict(dataset.loc[dataset.index == str])
+    prediction = model.predict(dataset.loc[dataset.index == str1])
     
-    # Return the prediction in JSON format
     return jsonify({'prediction': prediction[0]})
 
 if __name__ == '__main__':
